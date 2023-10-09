@@ -14,7 +14,9 @@ public class PlayerMovement : MonoBehaviour
 
   private float dirX = 0f;
   private float moveSpeed = 7f;
-  private float jumpForce = 5f;
+  private float jumpForce = 7f;
+  private bool moveLeft = false;
+  private bool moveRight = false;
 
   private enum MovementState { idle, running, jumping, falling }
 
@@ -36,12 +38,14 @@ public class PlayerMovement : MonoBehaviour
       return;
     }
 
+    InitMovement();
     UpdateAnimationState();
   }
 
-  private void Movement()
+  private void InitMovement()
   {
-    dirX = Input.GetAxisRaw("Horizontal");
+    dirX = moveLeft ? -1 : moveRight ? 1 : 0;
+    //dirX = Input.GetAxisRaw("Horizontal");
     rb.velocity = new Vector2(dirX * moveSpeed, rb.velocity.y);
     if (Input.GetButtonDown("Jump") && IsGrounded())
     {
@@ -52,22 +56,20 @@ public class PlayerMovement : MonoBehaviour
   // hold left ui button to move left
   public void MoveLeft()
   {
-    dirX = -1;
-    rb.velocity = new Vector2(dirX * moveSpeed, rb.velocity.y);
+    moveLeft = true;
   }
 
   // hold right ui button to move right
   public void MoveRight()
   {
-    dirX = 1;
-    rb.velocity = new Vector2(dirX * moveSpeed, rb.velocity.y);
+    moveRight = true;
   }
 
   // release left or right ui button to stop moving
   public void StopMoving()
   {
-    dirX = 0;
-    rb.velocity = new Vector2(dirX * moveSpeed, rb.velocity.y);
+    moveLeft = false;
+    moveRight = false;
   }
 
   // tap jump ui button to jump
@@ -84,12 +86,12 @@ public class PlayerMovement : MonoBehaviour
   {
     MovementState state;
 
-    if (dirX > 0f)
+    if (moveRight)
     {
       state = MovementState.running;
       sprite.flipX = false;
     }
-    else if (dirX < 0f)
+    else if (moveLeft)
     {
       state = MovementState.running;
       sprite.flipX = true;
