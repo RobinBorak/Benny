@@ -3548,6 +3548,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Benny (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7665228358868260623, guid: bf035354107eb41e79b6dac8090795cf, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8532970928922384380, guid: bf035354107eb41e79b6dac8090795cf, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2064696795543783359, guid: bf035354107eb41e79b6dac8090795cf, type: 3}
     - {fileID: 2416071982422776986, guid: bf035354107eb41e79b6dac8090795cf, type: 3}
