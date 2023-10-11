@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BennyMovement : MonoBehaviour
 {
-  [SerializeField] private LayerMask jumpableGround;
+  private LayerMask jumpableGround;
 
   private Rigidbody2D rb;
   private Transform tr;
@@ -28,6 +28,7 @@ public class BennyMovement : MonoBehaviour
     anim = GetComponent<Animator>();
     coll = GetComponent<CapsuleCollider2D>();
     playerLife = GetComponent<PlayerLife>();
+    jumpableGround = LayerMask.GetMask("Ground");
   }
 
   void FixedUpdate()

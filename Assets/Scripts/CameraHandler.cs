@@ -4,8 +4,14 @@ using UnityEngine;
 
 public class CameraHandler : MonoBehaviour
 {
-  [SerializeField] private GameObject target;
+  private GameObject target;
   [SerializeField] private GameObject enemy;
+
+  void Start()
+  {
+    // Set target to player
+    target = GameObject.FindGameObjectWithTag("Player");
+  }
 
   // Update is called once per frame
   void Update()

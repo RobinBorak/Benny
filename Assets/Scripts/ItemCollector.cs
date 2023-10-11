@@ -8,7 +8,12 @@ public class ItemCollector : MonoBehaviour
 {
   private int cherries = 0;
 
-  [SerializeField] private TextMeshProUGUI cherriesText;
+  private TextMeshProUGUI cherriesText;
+
+  private void Start()
+  {
+    cherriesText = GameObject.Find("CheeriesText").GetComponent<TextMeshProUGUI>();
+  }
 
 
   private void OnTriggerEnter2D(Collider2D collision)
