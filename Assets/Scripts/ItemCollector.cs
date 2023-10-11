@@ -7,6 +7,7 @@ using TMPro;
 public class ItemCollector : MonoBehaviour
 {
   private int cherries = 0;
+  private int apples = 0;
 
   private TextMeshProUGUI cherriesText;
 
@@ -23,6 +24,11 @@ public class ItemCollector : MonoBehaviour
       Destroy(collision.gameObject);
       cherries++;
       cherriesText.text = cherries.ToString();
+    } else if (collision.gameObject.CompareTag("Apple"))
+    {
+      Destroy(collision.gameObject);
+      apples++;
+      GetComponent<PlayerLife>().IncreaseSizeAndStrength(2f);
     }
   }
 }

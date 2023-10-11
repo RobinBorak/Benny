@@ -14,7 +14,7 @@ public class BennyMovement : MonoBehaviour
 
   private float dirX = 0f;
   private float moveSpeed = 3f;
-  private float jumpForce = 7f;
+  [SerializeField] private float jumpForce = 7f;
   private bool moveLeft;
   private bool moveRight;
 
@@ -41,7 +41,7 @@ public class BennyMovement : MonoBehaviour
     UpdateAnimationState();
 
     // For testing purposes
-    if(Input.GetButtonDown("Jump") )
+    if (Input.GetButtonDown("Jump"))
     {
       Jump();
     }
@@ -87,18 +87,26 @@ public class BennyMovement : MonoBehaviour
   private void UpdateAnimationState()
   {
     MovementState state;
+    float localeScaleX = tr.localScale.x;
 
     if (moveRight)
     {
       state = MovementState.running;
-      //tr.localScale = new Vector2(-1, 1);
-      tr.localScale = new Vector3(-1, 1, 1);
+      if (localeScaleX > 0)
+      {
+        localeScaleX *= -1;
+      }
+
+      tr.localScale = new Vector3(localeScaleX, tr.localScale.y, tr.localScale.z);
     }
     else if (moveLeft)
     {
+      if (localeScaleX < 0)
+      {
+        localeScaleX *= -1;
+      }
       state = MovementState.running;
-      //tr.localScale = new Vector2(1, 1);
-      tr.localScale = new Vector3(1, 1, 1);
+      tr.localScale = new Vector3(tr.localScale.x * 1, tr.localScale.y, tr.localScale.z);
     }
     else
     {

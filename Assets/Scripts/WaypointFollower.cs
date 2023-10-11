@@ -18,6 +18,7 @@ public class WaypointFollower : MonoBehaviour
       {
         currentWaypointIndex = 0;
       }
+      transform.localScale = new Vector3(transform.localScale.x * -1, 1, 1);
     }
     transform.position = Vector2.MoveTowards(transform.position, waypoints[currentWaypointIndex].transform.position, Time.deltaTime * speed);
   }
