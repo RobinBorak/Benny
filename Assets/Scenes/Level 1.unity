@@ -92488,6 +92488,10 @@ PrefabInstance:
       propertyPath: cherriesText
       value: 
       objectReference: {fileID: 564447276}
+    - target: {fileID: 7983346259470550992, guid: bf035354107eb41e79b6dac8090795cf, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
