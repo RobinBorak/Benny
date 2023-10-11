@@ -277,7 +277,7 @@ PrefabInstance:
       objectReference: {fileID: 519420031}
     - target: {fileID: 7567771151108994789, guid: 5078623ea1d84408da4c1d4feacf1c0c, type: 3}
       propertyPath: m_Name
-      value: BennyMovementCanvas
+      value: PlayerMovementCanvas
       objectReference: {fileID: 0}
     - target: {fileID: 8098181449587627052, guid: 5078623ea1d84408da4c1d4feacf1c0c, type: 3}
       propertyPath: m_Delegates.Array.size

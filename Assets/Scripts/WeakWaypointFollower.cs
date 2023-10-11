@@ -8,7 +8,7 @@ public class WeakWaypointFollower : MonoBehaviour
   private int currentWaypointIndex = 0;
   private bool isPaused = false;
 
-  [SerializeField] private float speed = 6f;
+  [SerializeField] private float speed = 4f;
 
   private void Update()
   {
