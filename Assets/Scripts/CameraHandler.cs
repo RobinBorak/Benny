@@ -5,7 +5,6 @@ using UnityEngine;
 public class CameraHandler : MonoBehaviour
 {
   private GameObject target;
-  [SerializeField] private GameObject enemy;
 
   void Start()
   {
@@ -17,37 +16,10 @@ public class CameraHandler : MonoBehaviour
   void Update()
   {
     FollowTarget();
-    //DemoGoToTarget();
-
   }
 
   void FollowTarget()
   {
     transform.position = new Vector3(target.transform.position.x, target.transform.position.y, transform.position.z);
-  }
-
-
-  void DemoGoToTarget()
-  {
-    // Follow target. 
-    // After 1 seconds slowly move camera to the enemy and then back again.
-    if (Time.time < 1)
-    {
-      FollowTarget();
-    }
-    else if (Time.time < 6)
-    {
-      Vector3 targetPosition = new Vector3(enemy.transform.position.x, enemy.transform.position.y, transform.position.z);
-      transform.position = Vector3.Lerp(transform.position, targetPosition, 0.01f);
-    }
-    else if (Time.time < 11)
-    {
-      Vector3 targetPosition = new Vector3(target.transform.position.x, target.transform.position.y, transform.position.z);
-      transform.position = Vector3.Lerp(transform.position, targetPosition, 0.01f);
-    }
-    else
-    {
-      FollowTarget();
-    }
   }
 }
