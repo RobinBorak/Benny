@@ -26,4 +26,13 @@ public class Enemy : MonoBehaviour
     //Destroy the enemy
     Destroy(gameObject, 1);
   }
+
+  public void TakeDamage(int damage)
+  {
+    //Trigger take damage animation
+    //animator.SetTrigger("TakeDamage");
+    //Reduce health
+    //Check if health is 0
+    Die();
+  }
 }

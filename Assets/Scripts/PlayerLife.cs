@@ -33,7 +33,7 @@ public class PlayerLife : MonoBehaviour
       }
       else
       {
-        Die();
+        //Die(); 
       }
     }
   }

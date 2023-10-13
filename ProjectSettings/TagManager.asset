@@ -10,6 +10,7 @@ TagManager:
   - Cherry
   - Enemy
   - Apple
+  - SwordItem
   layers:
   - Default
   - TransparentFX

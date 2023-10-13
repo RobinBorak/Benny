@@ -29,6 +29,10 @@ public class ItemCollector : MonoBehaviour
       Destroy(collision.gameObject);
       apples++;
       GetComponent<PlayerLife>().IncreaseSizeAndStrength(2f);
+    } else if (collision.gameObject.CompareTag("SwordItem"))
+    {
+      Destroy(collision.gameObject);
+      MainManager.Instance.GetPlayer().GiveSword();
     }
   }
 }

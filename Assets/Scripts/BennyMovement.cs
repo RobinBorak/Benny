@@ -14,7 +14,7 @@ public class BennyMovement : MonoBehaviour
 
   private float dirX = 0f;
   private float moveSpeed = 3f;
-  [SerializeField] private float jumpForce = 7f;
+  private float jumpForce = 7f;
   private bool moveLeft;
   private bool moveRight;
 
@@ -106,7 +106,7 @@ public class BennyMovement : MonoBehaviour
         localeScaleX *= -1;
       }
       state = MovementState.running;
-      tr.localScale = new Vector3(tr.localScale.x * 1, tr.localScale.y, tr.localScale.z);
+      tr.localScale = new Vector3(localeScaleX, tr.localScale.y, tr.localScale.z);
     }
     else
     {
