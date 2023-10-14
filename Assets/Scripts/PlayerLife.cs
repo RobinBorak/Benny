@@ -10,6 +10,7 @@ public class PlayerLife : MonoBehaviour
   public bool isDead = false;
   private bool isInvincible = false;
   private Transform tr;
+  private Vector3 originalScale;
 
 
   private void Start()
@@ -17,6 +18,7 @@ public class PlayerLife : MonoBehaviour
     rb = GetComponent<Rigidbody2D>();
     anim = GetComponent<Animator>();
     tr = GetComponent<Transform>();
+    originalScale = tr.localScale;
   }
 
   private void OnCollisionEnter2D(Collision2D collision)
@@ -68,6 +70,7 @@ public class PlayerLife : MonoBehaviour
     }
   }
 
+  
   public void IncreaseSizeAndStrength(float amount)
   {
     Debug.Log("Player increased size and strength!");
@@ -80,6 +83,6 @@ public class PlayerLife : MonoBehaviour
   {
     Debug.Log("Player is no longer invincible!");
     isInvincible = false;
-    transform.localScale = new Vector3(1f, 1f, transform.localScale.z);
+    transform.localScale = new Vector3(originalScale.x, originalScale.y, originalScale.z);
   }
 }

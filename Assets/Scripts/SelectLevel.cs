@@ -10,7 +10,7 @@ public class SelectLevel : MonoBehaviour
   public void LoadLevel()
   {
     Debug.Log("Loading level " + level);
-    UnityEngine.SceneManagement.SceneManager.LoadScene("Level " + level);
+    UnityEngine.SceneManagement.SceneManager.LoadScene(level);
   }
 
 
