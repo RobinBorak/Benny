@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class Finish : MonoBehaviour
 {
   private int nextLevel = 0;
-  private int maxLevel = 3;
+  private int maxLevel = 5;
   private void Start()
   {
     nextLevel = SceneManager.GetActiveScene().buildIndex + 1;

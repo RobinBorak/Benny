@@ -21,21 +21,38 @@ public class PlayerLife : MonoBehaviour
     originalScale = tr.localScale;
   }
 
+  private void OnTriggerEnter2D(Collider2D collision)
+  {
+    if (collision.gameObject.CompareTag("Enemy"))
+    {
+      //if (transform.position.y > collision.transform.position.y)
+      collision.gameObject.GetComponent<Enemy>().Die();
+      rb.velocity = new Vector2(rb.velocity.x, 2f);
+    }
+    else
+    {
+      OnCollision(collision.gameObject);
+    }
+  }
   private void OnCollisionEnter2D(Collision2D collision)
   {
-    if (collision.gameObject.CompareTag("Trap"))
+    OnCollision(collision.gameObject);
+  }
+  private void OnCollision(GameObject go)
+  {
+    if (go.CompareTag("Trap"))
     {
       Die();
     }
-    else if (collision.gameObject.CompareTag("Enemy"))
+    else if (go.CompareTag("Enemy"))
     {
       if (isInvincible)
       {
-        collision.gameObject.GetComponent<Enemy>().Die();
+        go.GetComponent<Enemy>().Die();
       }
       else
       {
-        Die(); 
+        Die();
       }
     }
   }
@@ -60,17 +77,6 @@ public class PlayerLife : MonoBehaviour
   }
 
 
-  private void OnTriggerEnter2D(Collider2D collision)
-  {
-    if (collision.gameObject.CompareTag("Enemy"))
-    {
-      //if (transform.position.y > collision.transform.position.y)
-      collision.gameObject.GetComponent<Enemy>().Die();
-      rb.velocity = new Vector2(rb.velocity.x, 2f);
-    }
-  }
-
-  
   public void IncreaseSizeAndStrength(float amount)
   {
     Debug.Log("Player increased size and strength!");
