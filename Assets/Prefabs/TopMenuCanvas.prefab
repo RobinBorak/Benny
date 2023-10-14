@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1979051604518449317}
   - component: {fileID: 6778684921055838387}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Cherries
   m_TagString: Cherry
   m_Icon: {fileID: 0}
@@ -376,7 +376,7 @@ GameObject:
   - component: {fileID: 8425022647939257658}
   - component: {fileID: 8023379146373528707}
   - component: {fileID: 4906557809833653865}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: CheeriesText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
