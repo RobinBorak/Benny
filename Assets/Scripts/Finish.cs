@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class Finish : MonoBehaviour
 {
   private int nextLevel = 0;
-  private int maxLevel = 5;
+  private int maxLevel = 6;
   private void Start()
   {
     nextLevel = SceneManager.GetActiveScene().buildIndex + 1;
@@ -14,10 +14,6 @@ public class Finish : MonoBehaviour
     {
       nextLevel = -1;
     }
-
-    // Remove sword on first level for demo purposes
-    if(nextLevel == 2)
-      MainManager.Instance.GetPlayer().RemoveSword();
   }
   private void OnTriggerEnter2D(Collider2D collision)
   {

@@ -10,6 +10,11 @@ public class SelectLevel : MonoBehaviour
   public void LoadLevel()
   {
     Debug.Log("Loading level " + level);
+
+    // Remove sword on first level for demo purposes
+    if (level == 1)
+      MainManager.Instance.GetPlayer().RemoveSword();
+
     UnityEngine.SceneManagement.SceneManager.LoadScene(level);
   }
 
