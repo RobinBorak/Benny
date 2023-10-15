@@ -8,7 +8,6 @@ public class Player
   public static event OnHasSwordChange onHasSwordChange;
 
   public bool hasSword = false;
-  private GameObject attackButton;
 
   public Player()
   {

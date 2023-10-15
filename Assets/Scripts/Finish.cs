@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class Finish : MonoBehaviour
 {
@@ -19,6 +20,7 @@ public class Finish : MonoBehaviour
   {
     if (collision.gameObject.CompareTag("Player"))
     {
+      SetHighscore();
       Debug.Log("Player reached the finish! Go to next level " + nextLevel);
       if (nextLevel == -1)
       {
@@ -30,5 +32,12 @@ public class Finish : MonoBehaviour
         SceneManager.LoadScene(nextLevel);
       }
     }
+  }
+
+  private void SetHighscore()
+  {
+    TextMeshProUGUI cherryText = GameObject.Find("CheeriesText").GetComponent<TextMeshProUGUI>();
+    int cherries = int.Parse(cherryText.text);
+    MainManager.Instance.AddHighscore(SceneManager.GetActiveScene().buildIndex, cherries);
   }
 }
