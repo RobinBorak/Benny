@@ -21,6 +21,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Level 4 (Monsters).unity
     guid: 1f222c2152181423e8863ef98cc26bf0
   - enabled: 1
-    path: Assets/Scenes/Level 5 (Jump).unity
+    path: Assets/Scenes/Level 5 (Fire).unity
     guid: bac45d6fd6aea4d80b01c76a400f97d7
   m_configObjects: {}
