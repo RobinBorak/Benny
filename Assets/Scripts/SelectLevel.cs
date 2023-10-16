@@ -10,6 +10,8 @@ public class SelectLevel : MonoBehaviour
   public void LoadLevel()
   {
     Debug.Log("Loading level " + level);
+    MainManager.Instance.CurrentDeathCount = 0;
+    MainManager.Instance.CurrentLevel = level;
 
     // Remove sword on first level for demo purposes
     try
@@ -27,6 +29,7 @@ public class SelectLevel : MonoBehaviour
     BannerAd bannerAd = FindObjectOfType<BannerAd>();
     if (bannerAd != null)
       bannerAd.HideBannerAd();
+
 
   }
 

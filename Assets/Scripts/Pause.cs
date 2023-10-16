@@ -56,6 +56,11 @@ public class Pause : MonoBehaviour
   {
     Resume();
     UnityEngine.SceneManagement.SceneManager.LoadScene("Level Selector");
+    if (bannerAd == null)
+    {
+      bannerAd = FindObjectOfType<BannerAd>();
+    }
+    bannerAd.HideBannerAd();
   }
 
 }

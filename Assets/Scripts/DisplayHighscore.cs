@@ -20,4 +20,12 @@ public class DisplayHighscore : MonoBehaviour
     Debug.Log("Highscore for level " + level + ": " + highscore.cherries);
     textMesh.text = highscore.cherries.ToString();
   }
+
+
+  private void ShowDeaths()
+  {
+    LevelStats levelStats = SaveLoad.GetLevelStats(level);
+    Debug.Log("LevelStats for " + level + ": " + levelStats.deaths);
+    textMesh.text = levelStats.deaths.ToString();
+  }
 }

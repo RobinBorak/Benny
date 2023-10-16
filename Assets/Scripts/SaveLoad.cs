@@ -7,6 +7,7 @@ using System.IO;
 public class SaveLoad
 {
   private static List<Highscore> highscores = new List<Highscore>();
+  private static List<LevelStats> levelStats = new List<LevelStats>();
 
   public static void SaveHighscores()
   {
@@ -16,7 +17,6 @@ public class SaveLoad
     bf.Serialize(file, SaveLoad.highscores);
     file.Close();
   }
-
   public static List<Highscore> GetHighscores()
   {
     if (highscores.Count > 0)
@@ -44,7 +44,6 @@ public class SaveLoad
     }
     return highscores;
   }
-
   public static Highscore GetHighscore(int level)
   {
     foreach (Highscore highscore in highscores)
@@ -56,7 +55,6 @@ public class SaveLoad
     }
     return new Highscore(level, 0);
   }
-
   public static void SetHighscore(int level, int cherries)
   {
     foreach (Highscore highscore in highscores)
@@ -69,4 +67,80 @@ public class SaveLoad
     }
     highscores.Add(new Highscore(level, cherries));
   }
+
+
+  public static void SaveLevelStats()
+  {
+    Debug.Log("Saving level stats...");
+    BinaryFormatter bf = new BinaryFormatter();
+    FileStream file = File.Create(Application.persistentDataPath + "/levelStats.gd");
+    bf.Serialize(file, SaveLoad.levelStats);
+    file.Close();
+  }
+  public static List<LevelStats> GetLevelStats()
+  {
+    if (levelStats.Count > 0)
+    {
+      Debug.Log("Return cached level stats");
+      return levelStats;
+    }
+    else
+    {
+      return LoadLevelStats();
+    }
+
+  }
+  public static List<LevelStats> LoadLevelStats()
+  {
+
+    Debug.Log("Load level stats from file");
+    if (File.Exists(Application.persistentDataPath + "/levelStats.gd"))
+    {
+      Debug.Log("File exists");
+      BinaryFormatter bf = new BinaryFormatter();
+      FileStream file = File.Open(Application.persistentDataPath + "/levelStats.gd", FileMode.Open);
+      SaveLoad.levelStats = (List<LevelStats>)bf.Deserialize(file);
+      file.Close();
+    }
+    return levelStats;
+  }
+
+  public static LevelStats GetLevelStats(int level)
+  {
+    foreach (LevelStats levelStat in levelStats)
+    {
+      if (levelStat.level == level)
+      {
+        return levelStat;
+      }
+    }
+    return new LevelStats(level);
+  }
+
+  public static void SetLevelStatCompleted(int level)
+  {
+    foreach (LevelStats levelStat in levelStats)
+    {
+      if (levelStat.level == level)
+      {
+        levelStat.completed = true;
+        return;
+      }
+    }
+    levelStats.Add(new LevelStats(level, 0, true));
+  }
+
+  public static void LevelStatAddDeath(int level)
+  {
+    foreach (LevelStats levelStat in levelStats)
+    {
+      if (levelStat.level == level)
+      {
+        levelStat.deaths++;
+        return;
+      }
+    }
+    levelStats.Add(new LevelStats(level, 1, false));
+  }
+
 }

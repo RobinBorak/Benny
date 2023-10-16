@@ -21,6 +21,7 @@ public class Finish : MonoBehaviour
     if (collision.gameObject.CompareTag("Player"))
     {
       SetHighscore();
+      MainManager.Instance.CurrentDeathCount = 0;
       Debug.Log("Player reached the finish! Go to next level " + nextLevel);
       if (nextLevel == -1)
       {
@@ -29,6 +30,8 @@ public class Finish : MonoBehaviour
       }
       else
       {
+        SaveLoad.SetLevelStatCompleted(SceneManager.GetActiveScene().buildIndex);
+        MainManager.Instance.CurrentLevel = nextLevel;
         SceneManager.LoadScene(nextLevel);
       }
     }

@@ -63,7 +63,18 @@ public class PlayerLife : MonoBehaviour
     isDead = true;
     rb.bodyType = RigidbodyType2D.Static;
     anim.SetTrigger("Die");
-    Invoke("ShowAd", 2f);
+
+    MainManager.Instance.CurrentDeathCount++;
+    SaveLoad.LevelStatAddDeath(MainManager.Instance.CurrentLevel);
+
+    if (MainManager.Instance.CurrentDeathCount % 3 == 0)
+    {
+      Invoke("ShowAd", 2f);
+    }
+    else
+    {
+      Invoke("GameOver", 2f);
+    }
   }
 
   private void ShowAd()

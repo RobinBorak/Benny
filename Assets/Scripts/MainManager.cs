@@ -7,12 +7,16 @@ public class MainManager : MonoBehaviour
   public static MainManager Instance;
   public static Player player;
 
+  private static int currentDeathCount = 0;
+  private static int currentLevel = 0;
+
   private void Awake()
   {
     if (Instance == null)
     {
       Instance = this;
       LoadPlayer();
+      SaveLoad.LoadLevelStats();
       SaveLoad.LoadHighscores();
       Physics2D.IgnoreLayerCollision(7, 7);
       DontDestroyOnLoad(gameObject);
@@ -24,6 +28,7 @@ public class MainManager : MonoBehaviour
     Debug.Log("Application ending...");
     SavePlayer();
     SaveLoad.SaveHighscores();
+    SaveLoad.SaveLevelStats();
   }
 
   public Player GetPlayer()
@@ -53,4 +58,28 @@ public class MainManager : MonoBehaviour
     }
   }
 
+
+  public int CurrentDeathCount
+  {
+    get
+    {
+      return currentDeathCount;
+    }
+    set
+    {
+      currentDeathCount = value;
+    }
+  }
+
+  public int CurrentLevel
+  {
+    get
+    {
+      return currentLevel;
+    }
+    set
+    {
+      currentLevel = value;
+    }
+  }
 }
