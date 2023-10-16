@@ -16,8 +16,8 @@ public class DisplayHighscore : MonoBehaviour
 
   private void SetText()
   {
-    MainManager instance = MainManager.Instance;
-    Highscore highscore = instance.GetHighscore(level);
+    Highscore highscore = SaveLoad.GetHighscore(level);
+    Debug.Log("Highscore for level " + level + ": " + highscore.cherries);
     textMesh.text = highscore.cherries.ToString();
   }
 }

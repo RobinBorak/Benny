@@ -38,6 +38,6 @@ public class Finish : MonoBehaviour
   {
     TextMeshProUGUI cherryText = GameObject.Find("CheeriesText").GetComponent<TextMeshProUGUI>();
     int cherries = int.Parse(cherryText.text);
-    MainManager.Instance.AddHighscore(SceneManager.GetActiveScene().buildIndex, cherries);
+    SaveLoad.SetHighscore(SceneManager.GetActiveScene().buildIndex, cherries);
   }
 }
