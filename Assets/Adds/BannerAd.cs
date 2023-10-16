@@ -4,67 +4,67 @@ using UnityEngine.Advertisements;
 public class BannerAd : MonoBehaviour
 {
 
-    [SerializeField] BannerPosition _bannerPosition = BannerPosition.BOTTOM_CENTER;
+  [SerializeField] BannerPosition _bannerPosition = BannerPosition.BOTTOM_CENTER;
 
-    [SerializeField] string _androidAdUnitId = "Banner_Android";
-    [SerializeField] string _iOSAdUnitId = "Banner_iOS";
-    string _adUnitId = null;
+  [SerializeField] string _androidAdUnitId = "Banner_Android";
+  [SerializeField] string _iOSAdUnitId = "Banner_iOS";
+  string _adUnitId = null;
 
-    void Start()
-    {
+  void Start()
+  {
 #if UNITY_IOS
         _adUnitId = _iOSAdUnitId;
 #elif UNITY_ANDROID
         _adUnitId = _androidAdUnitId;
 #endif
 
-        Advertisement.Banner.SetPosition(_bannerPosition);
+    Advertisement.Banner.SetPosition(_bannerPosition);
 
-        LoadBanner();
-    }
+    LoadBanner();
+  }
 
-    public void LoadBanner()
+  public void LoadBanner()
+  {
+    BannerLoadOptions options = new BannerLoadOptions
     {
-        BannerLoadOptions options = new BannerLoadOptions
-        {
-            loadCallback = OnBannerLoaded,
-            errorCallback = OnBannerError
-        };
+      loadCallback = OnBannerLoaded,
+      errorCallback = OnBannerError
+    };
 
-        Advertisement.Banner.Load(_adUnitId, options);
-    }
+    Advertisement.Banner.Load(_adUnitId, options);
+  }
 
-    void OnBannerLoaded()
+  void OnBannerLoaded()
+  {
+    Debug.Log("Banner loaded");
+    ShowBannerAd();
+  }
+
+  void OnBannerError(string message)
+  {
+    Debug.Log($"Banner Error: {message}");
+  }
+
+  public void ShowBannerAd()
+  {
+    BannerOptions options = new BannerOptions
     {
-        Debug.Log("Banner loaded");
-        ShowBannerAd();
-    }
+      clickCallback = OnBannerClicked,
+      hideCallback = OnBannerHidden,
+      showCallback = OnBannerShown
+    };
 
-    void OnBannerError(string message)
-    {
-        Debug.Log($"Banner Error: {message}");
-    }
+    Advertisement.Banner.Show(_adUnitId, options);
+  }
 
-    void ShowBannerAd()
-    {
-        BannerOptions options = new BannerOptions
-        {
-            clickCallback = OnBannerClicked,
-            hideCallback = OnBannerHidden,
-            showCallback = OnBannerShown
-        };
+  public void HideBannerAd()
+  {
+    Advertisement.Banner.Hide();
+  }
 
-        Advertisement.Banner.Show(_adUnitId, options);
-    }
+  void OnBannerClicked() { }
+  void OnBannerShown() { }
+  void OnBannerHidden() { }
 
-    void HideBannerAd()
-    {
-        Advertisement.Banner.Hide();
-    }
-
-    void OnBannerClicked() { }
-    void OnBannerShown() { }
-    void OnBannerHidden() { }
-
-    void OnDestroy() { }
+  void OnDestroy() { }
 }

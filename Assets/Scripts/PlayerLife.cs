@@ -70,29 +70,28 @@ public class PlayerLife : MonoBehaviour
   {
     try
     {
-
-      InterstitialAd interstitialAd = new InterstitialAd();
+      InterstitialAd interstitialAd = FindObjectOfType<InterstitialAd>();
       interstitialAd.LoadAd();
     }
     catch
     {
-      GameOver();
+      Debug.Log("Cannot show ad");
     }
-    
+    Invoke("GameOver", 5f);
   }
-  
-  private void RestartLevel()
-  {  
-      SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
 
-    private void GameOver()
-    {
-      RestartLevel();
-  }  
-  
-  
-    public void IncreaseSizeAndStrength(float amount)
+  private void RestartLevel()
+  {
+    SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+  }
+
+  private void GameOver()
+  {
+    RestartLevel();
+  }
+
+
+  public void IncreaseSizeAndStrength(float amount)
   {
     Debug.Log("Player increased size and strength!");
     isInvincible = true;

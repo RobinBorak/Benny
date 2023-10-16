@@ -8,9 +8,11 @@ public class Pause : MonoBehaviour
 
   public static bool isPaused = false;
   public GameObject pauseMenuUI;
+  private BannerAd bannerAd;
 
   void Start()
   {
+    bannerAd = FindObjectOfType<BannerAd>();
   }
 
   public void TogglePause()
@@ -30,6 +32,11 @@ public class Pause : MonoBehaviour
     pauseMenuUI.SetActive(false);
     isPaused = false;
     Time.timeScale = 1f;
+    if (bannerAd == null)
+    {
+      bannerAd = FindObjectOfType<BannerAd>();
+    }
+    bannerAd.HideBannerAd();
   }
 
   public void PauseGame()
@@ -37,6 +44,12 @@ public class Pause : MonoBehaviour
     pauseMenuUI.SetActive(true);
     isPaused = true;
     Time.timeScale = 0f;
+
+    if (bannerAd == null)
+    {
+      bannerAd = FindObjectOfType<BannerAd>();
+    }
+    bannerAd.ShowBannerAd();
   }
 
   public void MainMenu()
