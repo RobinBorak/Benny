@@ -63,21 +63,36 @@ public class PlayerLife : MonoBehaviour
     isDead = true;
     rb.bodyType = RigidbodyType2D.Static;
     anim.SetTrigger("Die");
-    Invoke("GameOver", 2f);
+    Invoke("ShowAd", 2f);
   }
 
+  private void ShowAd()
+  {
+    try
+    {
+
+      InterstitialAd interstitialAd = new InterstitialAd();
+      interstitialAd.LoadAd();
+    }
+    catch
+    {
+      GameOver();
+    }
+    
+  }
+  
   private void RestartLevel()
-  {
-    SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-  }
+  {  
+      SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
 
-  private void GameOver()
-  {
-    RestartLevel();
-  }
-
-
-  public void IncreaseSizeAndStrength(float amount)
+    private void GameOver()
+    {
+      RestartLevel();
+  }  
+  
+  
+    public void IncreaseSizeAndStrength(float amount)
   {
     Debug.Log("Player increased size and strength!");
     isInvincible = true;
