@@ -3062,6 +3062,7 @@ GameObject:
   - component: {fileID: 784852147}
   - component: {fileID: 784852146}
   - component: {fileID: 784852145}
+  - component: {fileID: 784852149}
   m_Layer: 5
   m_Name: ButtonLevel4
   m_TagString: Untagged
@@ -3197,6 +3198,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 784852143}
   m_CullTransparentMesh: 1
+--- !u!114 &784852149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 784852143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3090c887855434c00a9ff4dc0c07b021, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  level: 4
 --- !u!1001 &828187361
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3316,6 +3330,7 @@ GameObject:
   - component: {fileID: 836881320}
   - component: {fileID: 836881319}
   - component: {fileID: 836881318}
+  - component: {fileID: 836881322}
   m_Layer: 5
   m_Name: ButtonLevel3
   m_TagString: Untagged
@@ -3452,6 +3467,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 836881316}
   m_CullTransparentMesh: 1
+--- !u!114 &836881322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 836881316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3090c887855434c00a9ff4dc0c07b021, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  level: 3
 --- !u!1 &874501244
 GameObject:
   m_ObjectHideFlags: 0
@@ -3465,6 +3493,7 @@ GameObject:
   - component: {fileID: 874501248}
   - component: {fileID: 874501247}
   - component: {fileID: 874501246}
+  - component: {fileID: 874501250}
   m_Layer: 5
   m_Name: ButtonLevel2
   m_TagString: Untagged
@@ -3600,6 +3629,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 874501244}
   m_CullTransparentMesh: 1
+--- !u!114 &874501250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 874501244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3090c887855434c00a9ff4dc0c07b021, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  level: 2
 --- !u!1001 &891158889
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3962,6 +4004,7 @@ GameObject:
   - component: {fileID: 1052692239}
   - component: {fileID: 1052692238}
   - component: {fileID: 1052692237}
+  - component: {fileID: 1052692241}
   m_Layer: 5
   m_Name: ButtonLevel5
   m_TagString: Untagged
@@ -4097,6 +4140,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1052692235}
   m_CullTransparentMesh: 1
+--- !u!114 &1052692241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1052692235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3090c887855434c00a9ff4dc0c07b021, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  level: 5
 --- !u!1001 &1115697668
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5350,6 +5406,7 @@ GameObject:
   - component: {fileID: 2069937984}
   - component: {fileID: 2069937983}
   - component: {fileID: 2069937982}
+  - component: {fileID: 2069937986}
   m_Layer: 5
   m_Name: ButtonLevel6
   m_TagString: Untagged
@@ -5485,6 +5542,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2069937980}
   m_CullTransparentMesh: 1
+--- !u!114 &2069937986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2069937980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3090c887855434c00a9ff4dc0c07b021, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  level: 6
 --- !u!1 &2103070399
 GameObject:
   m_ObjectHideFlags: 0
