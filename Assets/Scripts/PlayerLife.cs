@@ -67,19 +67,22 @@ public class PlayerLife : MonoBehaviour
     MainManager.Instance.CurrentDeathCount++;
     SaveLoad.LevelStatAddDeath(MainManager.Instance.CurrentLevel);
 
-    if (MainManager.Instance.CurrentDeathCount % 2 == 0)
+    try
     {
-      //Prepare ad
-      InterstitialAd interstitialAd = FindObjectOfType<InterstitialAd>();
-      interstitialAd.LoadAd();
+      if (MainManager.Instance.CurrentDeathCount % 3 == 0)
+      {
+        InterstitialAd interstitialAd = FindObjectOfType<InterstitialAd>();
+        interstitialAd.LoadAd();
+        Invoke("ShowAd", 2f);
+      }
+      else
+      {
+        Invoke("GameOver", 2f);
+      }
     }
-    else if (MainManager.Instance.CurrentDeathCount % 3 == 0)
+    catch
     {
-
-      Invoke("ShowAd", 2f);
-    }
-    else
-    {
+      Debug.Log("Cannot show ad");
       Invoke("GameOver", 2f);
     }
   }
@@ -89,6 +92,7 @@ public class PlayerLife : MonoBehaviour
     try
     {
       InterstitialAd interstitialAd = FindObjectOfType<InterstitialAd>();
+      interstitialAd.LoadAd();
       interstitialAd.ShowAd();
     }
     catch
