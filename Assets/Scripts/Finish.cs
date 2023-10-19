@@ -7,7 +7,7 @@ using TMPro;
 public class Finish : MonoBehaviour
 {
   private int nextLevel = 0;
-  private int maxLevel = 6;
+  private int maxLevel = 7;
   private void Start()
   {
     nextLevel = SceneManager.GetActiveScene().buildIndex + 1;
