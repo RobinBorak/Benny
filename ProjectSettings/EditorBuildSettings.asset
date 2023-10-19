@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level 7 (Spike Heads).unity
     guid: b81355764c56e411fad3b5d47e0bf080
+  - enabled: 1
+    path: Assets/Scenes/Level 8 (Rooms).unity
+    guid: 39066e662a616442da09ce0c1c1f10a8
   m_configObjects: {}
