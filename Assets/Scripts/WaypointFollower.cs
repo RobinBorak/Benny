@@ -5,9 +5,18 @@ using UnityEngine;
 public class WaypointFollower : MonoBehaviour
 {
   [SerializeField] private GameObject[] waypoints;
-  private int currentWaypointIndex = 0;
-
   [SerializeField] private float speed = 2f;
+  private int currentWaypointIndex = 0;
+  private bool gameObjectIsEnemy = false;
+
+  private void Start()
+  {
+    if (gameObject.GetComponent<Enemy>() != null)
+    {
+      gameObjectIsEnemy = true;
+    }
+  }
+
 
   private void Update()
   {
@@ -18,7 +27,8 @@ public class WaypointFollower : MonoBehaviour
       {
         currentWaypointIndex = 0;
       }
-      transform.localScale = new Vector3(transform.localScale.x * -1, 1, 1);
+      if (gameObjectIsEnemy)
+        transform.localScale = new Vector3(transform.localScale.x * -1, 1, 1);
     }
     transform.position = Vector2.MoveTowards(transform.position, waypoints[currentWaypointIndex].transform.position, Time.deltaTime * speed);
   }
